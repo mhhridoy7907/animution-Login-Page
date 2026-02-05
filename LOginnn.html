@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MURAD HASAN</title>
+        <style>
+            body{
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #1f293a;
+                font-family: Arial, sans-serif;
+                position: relative;
+                overflow: hidden;                
+            }
+            .circle-login{
+                width: 250px;
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                color: #fff;
+                position: relative;
+                z-index: 1;
+            }
+            .circle-login h2 {
+                margin-bottom: 20px;
+                font-size: 22px;
+            }
+            .circle-login input {
+                width: 70%;
+                padding: 10px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 20px;
+            }
+            .circle-login button{
+                width: 50%;
+                padding: 10px;
+                margin-top: 15px;
+                border: none;
+                border-radius: 20px;
+                background: #4f5bd5;
+                color: #fff;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            .circle-login button:hover{
+                background: #0adf6a;
+            }
+            .ray{
+                width: 6px;
+                height: 80px;
+                background:#fcfcfc ;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform-origin: bottom center ;
+                animation: glow 2s linear infinite;
+            }
+
+            @keyframes glow {
+                0%  { background-color: #23ff2e;}
+                25% {background-color: #45a71e;}
+                50% {background-color: #000;}
+                75% {background-color: #000000;}
+                100% {background-color: rgb(0, 0, 0);}
+            }
+
+        </style>
+</head>
+<body>
+
+<div class="circle-login">
+    <h2>MH HRIDOY</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+</div>
+
+<script>
+const numRays = 40; 
+const centerX = window.innerWidth / 2;
+const centerY = window.innerHeight / 2;
+
+for(let i = 0; i < numRays; i++){
+    const ray = document.createElement('div');
+    ray.className = 'ray';
+    const angle = (i / numRays) * 360; 
+    ray.style.transform = `translate(-50%, -100%) rotate(${angle}deg) translateY(-130px)`;
+
+  
+    ray.style.animationDelay = `${(i * 0.05)}s`;
+
+    document.body.appendChild(ray);
+}
+</script>
+
+</body>
+</html>
